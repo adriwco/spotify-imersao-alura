@@ -15,9 +15,7 @@
     border-radius: 0.5rem; /* 8px para rem */
     background-color: #121212;
   }
-  #search-input{
-    color: transparent;
-  }
+  
   .header__navigation .navigation {
     display: flex;
     justify-content: space-around;

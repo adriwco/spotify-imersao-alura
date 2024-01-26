@@ -2,10 +2,16 @@ const resultArtist = document.getElementById("result-artist");
 const playlistContainer = document.getElementById("result-playlists");
 const searchInput = document.getElementById("search-input");
 
-function requestApi(searchTerm) {
-  fetch(`http://localhost:3000/artists?name_like=${searchTerm}`)
-    .then((response) => response.json())
-    .then((results) => displayResults(results));
+async function requestApi(searchTerm) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/artists?name_like=${searchTerm}`
+    );
+    const results = await response.json();
+    displayResults(results);
+  } catch (error) {
+    console.error("Erro ao buscar dados da API:", error);
+  }
 }
 
 function displayResults(results) {
